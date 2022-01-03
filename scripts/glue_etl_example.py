@@ -7,7 +7,7 @@ sc = SparkContext.getOrCreate()
 gc = GlueContext(sc)
 spark = gc.spark_session
 
-plist = '[{"Col1":"20211201","Col2":"103"},{"Col1":"20211202","Col2":"54"}, ,{"Col1":"20211202","Col2":"47"}]'
+plist = '[{"Name":"Jose","Idade":"25"},{"Name":"Maria","Idade":"32"},{"Name":"Joao","Idade":"47"}]'
 
 spark_df = spark.read.json(sc.parallelize([plist]))
 glue_df = DynamicFrame.fromDF(spark_df, gc, "glue_df")
